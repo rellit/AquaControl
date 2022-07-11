@@ -1,0 +1,16 @@
+:host {
+    margin: 0px 4px;
+
+    button {
+        margin-top: 8px;
+    }
+
+    .mat-flat-button.mat-on{
+        background-color: #1e8005;
+        color: white;
+    }
+
+    .mat-flat-button.mat-off{
+        background-color: #f44336;
+    }
+}
