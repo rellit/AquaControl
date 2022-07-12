@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StateBarComponent } from './state-bar.component';
+import { RelayDefComponent } from './relay-def.component';
 
-describe('StateBarComponent', () => {
-  let component: StateBarComponent;
-  let fixture: ComponentFixture<StateBarComponent>;
+describe('RelayDefComponent', () => {
+  let component: RelayDefComponent;
+  let fixture: ComponentFixture<RelayDefComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StateBarComponent ]
+      declarations: [ RelayDefComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StateBarComponent);
+    fixture = TestBed.createComponent(RelayDefComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

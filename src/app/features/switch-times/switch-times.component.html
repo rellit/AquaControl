@@ -1,0 +1,6 @@
+<div class="switchTime-container">
+    <app-switch-time *ngFor="let switchTime of switchTimes$|async" [switchTime]="switchTime"></app-switch-time>
+
+    
+  <button class="newTimeButton" mat-fab color="primary"><mat-icon>add</mat-icon></button>
+</div>

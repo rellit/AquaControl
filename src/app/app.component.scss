@@ -1,3 +1,21 @@
-:host {
-    text-align: center;
-}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .drawer-container{
+    width: 250px;
+    padding: 12px;
+
+    p {
+        margin: 12px;
+    }
+  }
+  .sidenav-container {
+    top: 64px !important;
+  }

@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
 import { AquaState } from '../domain/AquaState';
 import { AquaService } from '../services/aqua.service';
@@ -10,5 +11,5 @@ export const aquaReducer = createReducer(
     on(loadedRelayState, (state, relayState) => {
         return { ...state, state: relayState.state }
     }),
-    on(loadedSettings, (state, aquaState) => aquaState)
+    on(loadedSettings, (state, aquaState) => {return {...state, relays:aquaState.relays, times:aquaState.times}})
 );

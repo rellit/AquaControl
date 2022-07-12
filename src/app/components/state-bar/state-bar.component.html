@@ -1,4 +1,0 @@
-<div>
-<app-button *ngFor="let state of relayState$|async; index as i" [color]="state===1?'primary':'warn'"
-    [text]="(relayNames$|async)![i]"></app-button>
-</div>

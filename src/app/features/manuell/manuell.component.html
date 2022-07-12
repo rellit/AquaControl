@@ -1,0 +1,6 @@
+<div class="manuell-container">
+    <button mat-flat-button class="grid-button" *ngFor="let state of relayState$|async; index as i"
+    (click)="switchRelay(i)"
+    [color]="state===1?'primary':'warn'"
+        >{{(relayNames$|async)![i]}}</button>
+</div>

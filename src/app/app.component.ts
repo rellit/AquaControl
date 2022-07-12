@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { AquaState } from './domain/AquaState';
-import { RelayState } from './domain/RelayState';
-import { AquaService } from './services/aqua.service';
-import { AppState } from './state/app.state';
-import { loadedRelayState, loadedSettings, loadRelayState, loadSettings } from './state/aqua.actions';
+import { AppState } from './+state/app.state';
+import { loadRelayState, loadSettings } from './+state/aqua.actions';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,17 +13,14 @@ import { loadedRelayState, loadedSettings, loadRelayState, loadSettings } from '
 export class AppComponent implements OnInit {
   title = 'AquaControl';
 
-  constructor(private store: Store<AppState>, private aquaService: AquaService) { 
+  constructor(private store: Store<AppState>, protected router:Router) { 
+
   }
 
   ngOnInit(): void {
-    this.reloadRelayState();
+    this.store.dispatch(loadRelayState());
+    this.store.dispatch(loadSettings());
   }
 
-  reloadRelayState():void{
-    this.store.dispatch(loadRelayState());
-    setTimeout(() => {
-      this.reloadRelayState();
-    }, 5000);
-  }
+    
 }

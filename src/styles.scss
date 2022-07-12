@@ -5,17 +5,19 @@
 ::after {
     box-sizing: border-box;
 }
-html,
+
 body {
-    height: 100%;
-    margin: 0;
-    padding: 4px;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0px;
+  padding: 0px;
+
+  app-root {
+    min-height: 100%;
+  }
 }
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
-* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzQ1YjQ2MCIsIj9lcjwjYzdlOWNmIiwiO2VyPCMyZTljNDR$LCIlPmBePCNjNGQ2OTEiLCI~ZXI8I2VkZjNkZSIsIjtlcjwjYWZjNjc0fiwid2Fybj5gXjwjY2UzNTM1IiwiP2VyPCNmMGMyYzIiLCI7ZXI8I2JjMjIyMn4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjExfQ==
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzFjYWQwMyIsIj9lcjwjYmJlNmIzIiwiO2VyPCMxMTkzMDJ$LCIlPmBePCNjMGIyMjkiLCI~ZXI8I2VjZThiZiIsIjtlcjwjYWE5OTE5fiwid2Fybj5gXjwjYmEzMTM4IiwiP2VyPCNlYWMxYzMiLCI7ZXI8I2EzMWYyNH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxGaWxsZWQiLCI~bmVzcz50cnVlLCJ2ZXJzaW9uPjExfQ==
 */
 
 @import '~@angular/material/theming';
@@ -163,20 +165,20 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #45b460;
-  --primary-lighter-color: #c7e9cf;
-  --primary-darker-color: #2e9c44;
-  --text-primary-color: #{$dark-primary-text};
+  --primary-color: #1cad03;
+  --primary-lighter-color: #bbe6b3;
+  --primary-darker-color: #119302;
+  --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }   
 $mat-primary: (
-  main: #45b460,
-  lighter: #c7e9cf,
-  darker: #2e9c44,
-  200: #45b460, // For slide toggle,
+  main: #1cad03,
+  lighter: #bbe6b3,
+  darker: #119302,
+  200: #1cad03, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
     darker: $light-primary-text,
   )
@@ -185,18 +187,18 @@ $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #c4d691;
-  --accent-lighter-color: #edf3de;
-  --accent-darker-color: #afc674;
+  --accent-color: #c0b229;
+  --accent-lighter-color: #ece8bf;
+  --accent-darker-color: #aa9919;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }   
 $mat-accent: (
-  main: #c4d691,
-  lighter: #edf3de,
-  darker: #afc674,
-  200: #c4d691, // For slide toggle,
+  main: #c0b229,
+  lighter: #ece8bf,
+  darker: #aa9919,
+  200: #c0b229, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
@@ -207,18 +209,18 @@ $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
 
 body {
-  --warn-color: #ce3535;
-  --warn-lighter-color: #f0c2c2;
-  --warn-darker-color: #bc2222;
+  --warn-color: #ba3138;
+  --warn-lighter-color: #eac1c3;
+  --warn-darker-color: #a31f24;
   --text-warn-color: #{$light-primary-text};
   --text-warn-lighter-color: #{$dark-primary-text};
   --text-warn-darker-color: #{$light-primary-text};
 }   
 $mat-warn: (
-  main: #ce3535,
-  lighter: #f0c2c2,
-  darker: #bc2222,
-  200: #ce3535, // For slide toggle,
+  main: #ba3138,
+  lighter: #eac1c3,
+  darker: #a31f24,
+  200: #ba3138, // For slide toggle,
   contrast : (
     main: $light-primary-text,
     lighter: $dark-primary-text,

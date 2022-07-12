@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { SwitchTime } from 'src/app/domain/AquaState';
-import { AppState } from 'src/app/state/app.state';
+import { AppState } from 'src/app/+state/app.state';
 
 @Component({
   selector: 'app-switch-time',
