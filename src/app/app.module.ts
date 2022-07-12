@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { MatButtonModule } from '@angular/material/button';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
@@ -22,7 +19,8 @@ import { SettingsTabsComponent } from './components/settings-tabs/settings-tabs.
 import { SwitchTimesComponent } from './components/switch-times/switch-times.component';
 import { RelaysComponent } from './components/relays/relays.component';
 import { RelayComponent } from './components/relay/relay.component';
-import { SwitchTimeComponent } from './components/switch-time/switch-time.component';
+import { SwitchTimeComponent } from './components/switch-times/switch-time/switch-time.component';
+import { MatUIModule } from './modules/mat-uimodule/mat-ui.module';
 
 
 @NgModule({
@@ -40,10 +38,7 @@ import { SwitchTimeComponent } from './components/switch-time/switch-time.compon
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatInputModule,
-    MatSelectModule,
+    MatUIModule,
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot({aqua: aquaReducer}),
