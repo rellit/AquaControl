@@ -9,24 +9,24 @@ import { loadedRelayState, loadedSettings, loadRelayState, loadRelayStateError, 
 @Injectable()
 export class AquaEffects {
 
-    loadSettings$ = createEffect(() => this.actions$.pipe(
-        ofType(loadSettings),
-        switchMap(a => this.aquaService.getSettings().pipe(
-          map(settings => loadedSettings(settings)),
-          catchError(error => of(loadSettingsError({error})))
-        )),
-));
+  loadSettings$ = createEffect(() => this.actions$.pipe(
+    ofType(loadSettings),
+    switchMap(a => this.aquaService.getSettings().pipe(
+      map(settings => loadedSettings(settings)),
+      catchError(error => of(loadSettingsError({ error })))
+    )),
+  ));
 
-loadRelayState$ = createEffect(() => this.actions$.pipe(
+  loadRelayState$ = createEffect(() => this.actions$.pipe(
     ofType(loadRelayState),
     switchMap(a => this.aquaService.getRelayState().pipe(
       map(relayState => loadedRelayState(relayState)),
-      catchError(error => of(loadRelayStateError({error})))
+      catchError(error => of(loadRelayStateError({ error })))
     )),
-));
+  ));
 
   constructor(
     private aquaService: AquaService,
-    private actions$: Actions) {}
+    private actions$: Actions) { }
 
 }

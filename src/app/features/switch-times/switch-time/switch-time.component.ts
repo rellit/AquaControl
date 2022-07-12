@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { SwitchTime } from 'src/app/domain/AquaState';
+import { select, Store } from '@ngrx/store';
+import { map, Observable, take } from 'rxjs';
+
 import { AppState } from 'src/app/+state/app.state';
+import { deleteSwitchTime } from 'src/app/+state/aqua.actions';
+import { SwitchTime } from 'src/app/domain/Settings';
 
 @Component({
   selector: 'app-switch-time',
@@ -12,8 +14,10 @@ import { AppState } from 'src/app/+state/app.state';
 export class SwitchTimeComponent implements OnInit {
 
   @Input() switchTime:SwitchTime;
+  @Input() switchTimeIndex: number;
 
   relayNames$: Observable<string[]> = this.store.select(s=>s.aqua.relays);
+  switchTimes$: Observable<SwitchTime[]> = this.store.select(s=>s.aqua.times);
 
   get startTime():string {
     return "00:00";
@@ -26,6 +30,10 @@ export class SwitchTimeComponent implements OnInit {
   constructor(private store:Store<AppState>) { }
 
   ngOnInit(): void {
+  }
+
+  async deleteSwitchTime(st:SwitchTime):Promise<void> {
+    this.store.dispatch(deleteSwitchTime({value: this.switchTimeIndex}));
   }
 
 }

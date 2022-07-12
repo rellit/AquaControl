@@ -1,6 +1,6 @@
 <div class="switchTime-container">
-    <app-switch-time *ngFor="let switchTime of switchTimes$|async" [switchTime]="switchTime"></app-switch-time>
+    <app-switch-time *ngFor="let switchTime of switchTimes$|async;index as i" [switchTime]="switchTime" [switchTimeIndex]="i" ></app-switch-time>
 
     
-  <button class="newTimeButton" mat-fab color="primary"><mat-icon>add</mat-icon></button>
+  <button class="newTimeButton" mat-fab color="primary" (click)="addNewTime()"><mat-icon>add</mat-icon></button>
 </div>

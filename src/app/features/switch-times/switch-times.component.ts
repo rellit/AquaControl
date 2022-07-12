@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/+state/app.state';
-import { SwitchTime } from 'src/app/domain/AquaState';
+import { addSwitchTime } from 'src/app/+state/aqua.actions';
+import { SwitchTime } from 'src/app/domain/Settings';
 
 @Component({
   selector: 'app-switch-times',
@@ -16,6 +17,10 @@ export class SwitchTimesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  addNewTime():void {
+    this.store.dispatch(addSwitchTime());
   }
 
 }

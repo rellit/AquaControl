@@ -1,5 +1,4 @@
-import { AquaState } from "../domain/AquaState"
-import { RelayState } from "../domain/RelayState"
+import { AquaState } from "./aqua.state"
 
 export interface AppState {
     aqua: AquaState

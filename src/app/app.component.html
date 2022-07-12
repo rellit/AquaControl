@@ -1,7 +1,9 @@
 <div class="main-container" >
     <mat-toolbar color="primary" class="toolbar">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">{{title}}</h1>
+      <h1 class="app-name">{{title}}</h1>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="saveSettings()" *ngIf="(this.settingsSatus$|async).status =='unsaved' || (this.settingsSatus$|async).status =='error'"><mat-icon>check</mat-icon></button>
     </mat-toolbar>
   
     <mat-sidenav-container class="sidenav-container" fullscreen

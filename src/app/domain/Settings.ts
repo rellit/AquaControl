@@ -1,9 +1,8 @@
 import { RelayState } from "./RelayState"
 
-export interface AquaState extends RelayState{
+export interface Settings {
     relays: string[],
-    times: SwitchTime[],
-    state: number[]
+    times: SwitchTime[]
 }
 
 export interface SwitchTime {
