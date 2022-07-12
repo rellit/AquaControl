@@ -1,12 +1,12 @@
 <mat-card>
     <mat-card-content>
-        <mat-form-field class="switchTime-form-field" appearance="fill">
+        <mat-form-field class="switchTime-form-field" appearance="legacy" >
             <mat-label>Start</mat-label>
-            <input matInput type="time" [ngModel]="startTime">
+            <input matInput type="time" [ngModel]="formatTimeForInput(switchTime.start)">
         </mat-form-field>
         <mat-form-field class="switchTime-form-field" appearance="fill">
             <mat-label>Ende</mat-label>
-            <input matInput type="time" [ngModel]="startTime">
+            <input matInput type="time" [ngModel]="formatTimeForInput(switchTime.end)">
         </mat-form-field>
         <mat-form-field class="switchTime-form-field relay" appearance="fill">
             <mat-label>Relay</mat-label>
@@ -14,10 +14,11 @@
                 <mat-option *ngFor="let relay of relayNames$|async;index as i" [value]="i">{{relay}}</mat-option>
             </mat-select>
         </mat-form-field>
+        <button mat-fab color="warn" (click)="deleteSwitchTime(switchTime)"><mat-icon>delete</mat-icon></button>
     </mat-card-content>
-    <mat-divider inset></mat-divider>
+    <!-- <mat-divider inset></mat-divider>
     <mat-card-actions>
-        <button mat-flat-button color="warn" (click)="deleteSwitchTime(switchTime)">Löschen</button>
-    </mat-card-actions>
+
+    </mat-card-actions> -->
 
 </mat-card>

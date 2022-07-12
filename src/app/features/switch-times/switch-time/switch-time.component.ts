@@ -19,12 +19,9 @@ export class SwitchTimeComponent implements OnInit {
   relayNames$: Observable<string[]> = this.store.select(s=>s.aqua.relays);
   switchTimes$: Observable<SwitchTime[]> = this.store.select(s=>s.aqua.times);
 
-  get startTime():string {
-    return "00:00";
-  }
-
-  set startTime(time:string) {
-    this.switchTime.start = Number(time.replace(":",""));
+  formatTimeForInput(time:number):string {
+    let t = String(time).padStart(4,'0');
+    return t.substring(0,2)+":"+t.substring(2,4);
   }
 
   constructor(private store:Store<AppState>) { }
