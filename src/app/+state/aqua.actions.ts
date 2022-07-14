@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Settings } from '../domain/Settings';
+import { Settings, SwitchTime } from '../domain/Settings';
 import { RelayState } from '../domain/RelayState';
 
 export const loadRelayState = createAction('[AquaControl] Load RelayState');
@@ -16,7 +16,8 @@ export const loadSettingsError = createAction(
     props<{ error: string }>()
 );
 
-export const deleteSwitchTime = createAction('[AquaControl] Delete Switch Time', props<{ value: number }>());
+export const deleteSwitchTime = createAction('[AquaControl] Delete Switch Time', props<{switchTime: SwitchTime}>());
+export const changeSwitchTime = createAction('[AquaControl] Change Switch Time', props<{switchTime: SwitchTime}>());
 export const addSwitchTime = createAction('[AquaControl] Add Switch Time');
 
 export const saveSettings = createAction('[AquaControl] Save Settings');

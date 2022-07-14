@@ -1,12 +1,13 @@
-import { RelayState } from "./RelayState"
+import { RelayState } from './RelayState';
 
 export interface Settings {
-    relays: string[],
-    times: SwitchTime[]
+  relays: string[];
+  times: SwitchTime[];
 }
 
 export interface SwitchTime {
-    start: number,
-    end: number,
-    relay: number
+  id?: string;
+  start: number;
+  end: number;
+  relay: number;
 }
