@@ -12,7 +12,6 @@ import { environment } from '../environments/environment'; // Angular CLI enviro
 import { aquaReducer } from './+state/aqua.reducer';
 import { AquaEffects } from './+state/aqua.effect';
 import { AppComponent } from './app.component';
-import { RelayComponent } from './features/relay-def/relay/relay.component';
 import { SwitchTimeComponent } from './features/switch-times/switch-time/switch-time.component';
 import { MatUIModule } from './modules/mat-uimodule/mat-ui.module';
 import { ManuellComponent } from './features/manuell/manuell.component';
@@ -23,7 +22,6 @@ import { SwitchTimesComponent } from './features/switch-times/switch-times.compo
 @NgModule({
   declarations: [
     AppComponent,
-    RelayComponent,
     SwitchTimeComponent,
     SwitchTimesComponent,
     ManuellComponent,

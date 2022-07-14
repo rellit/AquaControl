@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { AquaService } from '../services/aqua.service';
+import { AppState } from './app.state';
 import {
   loadedRelayState,
   loadedSettings,
@@ -11,6 +13,7 @@ import {
   loadRelayStateError,
   loadSettings,
   loadSettingsError,
+  saveSettings,
 } from './aqua.actions';
 
 @Injectable()
@@ -39,5 +42,18 @@ export class AquaEffects {
     )
   );
 
-  constructor(private aquaService: AquaService, private actions$: Actions) {}
+  saveSettings$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(saveSettings),
+      withLatestFrom(this.store$),
+      switchMap((a) =>
+        this.aquaService.storeSettings(a[1].aqua).pipe(
+          map((relayState) => loadedSettings(relayState)),
+          catchError((error) => of(loadSettingsError({ error })))
+        )
+      )
+    )
+  );
+
+  constructor(private aquaService: AquaService, private actions$: Actions, private store$:Store<AppState>) {}
 }

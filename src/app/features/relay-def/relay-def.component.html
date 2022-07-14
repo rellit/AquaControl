@@ -1,2 +1,8 @@
-<p>relay-def works!</p>
-<app-relay></app-relay>
+<div class="relay-container">
+    <span *ngFor="let relay of relays$|async;index as i">
+      <mat-form-field class="relay-form-field" appearance="fill">
+        <mat-label>Relay {{i}}</mat-label>
+        <input matInput name="relay-{{i}}" [value]="relay" (change)="change()">
+      </mat-form-field>
+    </span>
+</div>

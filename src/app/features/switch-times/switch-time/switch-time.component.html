@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     <form [formGroup]="formGroup">
-    <mat-form-field class="switchTime-form-field" appearance="legacy">
+    <mat-form-field class="switchTime-form-field" appearance="fill">
       <mat-label>Start</mat-label>
       <input matInput type="time" formControlName="start" >
     </mat-form-field>
@@ -15,9 +15,9 @@
         <mat-option *ngFor="let relay of relayNames$|async;index as i" [value]="i">{{relay}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-fab color="warn" (click)="deleteSwitchTime()">
-      <mat-icon>delete</mat-icon>
-    </button>
   </form>
+  <button mat-fab color="warn" (click)="deleteSwitchTime()">
+    <mat-icon>delete</mat-icon>
+  </button>
   </mat-card-content>
 </mat-card>

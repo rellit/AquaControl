@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './+state/app.state';
-import { loadRelayState, loadSettings } from './+state/aqua.actions';
+import { loadRelayState, loadSettings, saveSettings } from './+state/aqua.actions';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { SettingsState } from './+state/aqua.state';
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   saveSettings(): void {
-    console.log("TODO", "Emit save Settings");
+    this.store.dispatch(saveSettings())
   }
 
   openSnackBar(message: string, action: string) {

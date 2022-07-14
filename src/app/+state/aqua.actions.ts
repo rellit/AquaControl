@@ -19,6 +19,7 @@ export const loadSettingsError = createAction(
 export const deleteSwitchTime = createAction('[AquaControl] Delete Switch Time', props<{switchTime: SwitchTime}>());
 export const changeSwitchTime = createAction('[AquaControl] Change Switch Time', props<{switchTime: SwitchTime}>());
 export const addSwitchTime = createAction('[AquaControl] Add Switch Time');
+export const changeRelays = createAction('[AquaControl] Change Relays', props<{relays: string[]}>());
 
 export const saveSettings = createAction('[AquaControl] Save Settings');
 export const switchRelay = createAction('[AquaControl] Switch Relay');
