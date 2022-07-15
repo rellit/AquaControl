@@ -14,6 +14,7 @@ import {
   loadSettings,
   loadSettingsError,
   saveSettings,
+  switchRelay,
 } from './aqua.actions';
 
 @Injectable()
@@ -21,7 +22,7 @@ export class AquaEffects {
   loadSettings$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadSettings),
-      switchMap((a) =>
+      switchMap(() =>
         this.aquaService.getSettings().pipe(
           map((settings) => loadedSettings(settings)),
           catchError((error) => of(loadSettingsError({ error })))
@@ -33,8 +34,20 @@ export class AquaEffects {
   loadRelayState$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadRelayState),
-      switchMap((a) =>
+      switchMap(() =>
         this.aquaService.getRelayState().pipe(
+          map((relayState) => loadedRelayState(relayState)),
+          catchError((error) => of(loadRelayStateError({ error })))
+        )
+      )
+    )
+  );
+
+  switchRelay$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(switchRelay),
+      switchMap((a) =>
+        this.aquaService.switchRelay(a.relay).pipe(
           map((relayState) => loadedRelayState(relayState)),
           catchError((error) => of(loadRelayStateError({ error })))
         )
@@ -47,13 +60,19 @@ export class AquaEffects {
       ofType(saveSettings),
       withLatestFrom(this.store$),
       switchMap((a) =>
-        this.aquaService.storeSettings(a[1].aqua).pipe(
-          map((relayState) => loadedSettings(relayState)),
-          catchError((error) => of(loadSettingsError({ error })))
-        )
+        this.aquaService
+          .storeSettings({ relays: a[1].aqua.relays, times: a[1].aqua.times })
+          .pipe(
+            map((relayState) => loadedSettings(relayState)),
+            catchError((error) => of(loadSettingsError({ error })))
+          )
       )
     )
   );
 
-  constructor(private aquaService: AquaService, private actions$: Actions, private store$:Store<AppState>) {}
+  constructor(
+    private aquaService: AquaService,
+    private actions$: Actions,
+    private store$: Store<AppState>
+  ) {}
 }

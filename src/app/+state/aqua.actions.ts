@@ -22,4 +22,4 @@ export const addSwitchTime = createAction('[AquaControl] Add Switch Time');
 export const changeRelays = createAction('[AquaControl] Change Relays', props<{relays: string[]}>());
 
 export const saveSettings = createAction('[AquaControl] Save Settings');
-export const switchRelay = createAction('[AquaControl] Switch Relay');
+export const switchRelay = createAction('[AquaControl] Switch Relay', props<{relay:number}>());

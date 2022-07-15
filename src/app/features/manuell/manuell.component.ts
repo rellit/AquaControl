@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/+state/app.state';
-import { loadRelayState, loadSettings } from 'src/app/+state/aqua.actions';
+import { loadRelayState, loadSettings, switchRelay } from 'src/app/+state/aqua.actions';
 
 @Component({
   selector: 'app-manuell',
@@ -15,7 +15,7 @@ export class ManuellComponent implements OnInit, OnDestroy {
   relayNames$: Observable<string[]>   = this.store.select(state=>state.aqua.relays);
   reloadId = 0;
 
-  constructor(private store: Store<AppState>) { 
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
@@ -29,8 +29,7 @@ export class ManuellComponent implements OnInit, OnDestroy {
   }
 
   switchRelay(relay:number) {
-    console.log("Should dispatch Relay Switch for Relay " + relay);
-    
+    this.store.dispatch(switchRelay({relay:relay}));
   }
 
 }
